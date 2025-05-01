@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 
 module.exports.connect = async function () {
   try {
-    const dbResponse = await mongoose.connect(
-      "mongodb+srv://bikash:Bikash100@cluster0.jsacefy.mongodb.net/doctor_db?retryWrites=true&w=majority&appName=Cluster0"
-    );
+    const dbResponse = await mongoose.connect(process.env.DB_STRING);
 
     if (dbResponse) {
       console.log(

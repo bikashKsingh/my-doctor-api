@@ -13,5 +13,5 @@ app.use("/api/v1/doctors", require("./routes/doctorRouter"));
 let port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Server is running at 3000`);
+  console.log(`Server is running at ${port}`);
 });
