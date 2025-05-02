@@ -28,6 +28,10 @@ const doctorSchema = new Schema(
     password: {
       type: String,
     },
+    status: {
+      type: Boolean,
+      default: true,
+    },
   },
   {
     timestamps: true,
