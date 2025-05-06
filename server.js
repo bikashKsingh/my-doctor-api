@@ -9,6 +9,7 @@ dbConnection.connect();
 app.use(express.json());
 
 app.use("/api/v1/doctors", require("./routes/doctorRouter"));
+app.use("/api/v1/admins", require("./routes/adminRouter"));
 
 let port = process.env.PORT || 3000;
 

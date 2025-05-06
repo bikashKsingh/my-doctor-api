@@ -1,38 +1,45 @@
 const express = require("express");
 const router = express.Router();
-const doctorController = require("../controllers/doctorController");
+const adminController = require("../controllers/adminController");
 const {
   createSchema,
   updateSchema,
   idSchema,
-} = require("../joiSchemas/doctorValidationSchema");
+  loginSchema,
+} = require("../joiSchemas/adminValidationSchema");
 
 const joiValidation = require("../middlewares/joiValidation");
 
 router.post(
   "/",
   joiValidation.validate(createSchema, "body"),
-  doctorController.create
+  adminController.create
 );
 
-router.get("/", doctorController.findAll);
+router.post(
+  "/login",
+  joiValidation.validate(loginSchema, "body"),
+  adminController.login
+);
+
+router.get("/", adminController.findAll);
 
 router.get(
   "/:id",
   joiValidation.validate(idSchema, "params"),
-  doctorController.findOne
+  adminController.findOne
 );
 
 router.put(
   "/:id",
   joiValidation.validate(idSchema, "params"),
   joiValidation.validate(updateSchema, "body"),
-  doctorController.update
+  adminController.update
 );
 router.delete(
   "/:id",
   joiValidation.validate(idSchema, "params"),
-  doctorController.delete
+  adminController.delete
 );
 
 module.exports = router;

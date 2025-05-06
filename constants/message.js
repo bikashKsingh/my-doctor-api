@@ -14,4 +14,19 @@ module.exports = {
 
     NOT_FOUND: "Doctor not found!",
   },
+  adminMessage: {
+    CREATED: "Admin created!",
+    NOT_CREATED: "Admin not created!",
+
+    FETCHED: "Admin fetched!",
+    NOT_FETCHED: "Admin not fetched",
+
+    UPDATED: "Admin updated!",
+    NOT_UPDATED: "Admin not updated!",
+
+    DELETED: "Admin deleted!",
+    NOT_DELETED: "Admin not deleted!",
+
+    NOT_FOUND: "Admin not found!",
+  },
 };
