@@ -6,8 +6,9 @@ const {
   updateSchema,
   idSchema,
 } = require("../joiSchemas/doctorValidationSchema");
-
+const jwt = require("jsonwebtoken");
 const joiValidation = require("../middlewares/joiValidation");
+const validateJwtToken = require("../middlewares/validateJwtToken");
 
 router.post(
   "/",
@@ -25,12 +26,14 @@ router.get(
 
 router.put(
   "/:id",
+  validateJwtToken.validateAdminToken,
   joiValidation.validate(idSchema, "params"),
   joiValidation.validate(updateSchema, "body"),
   doctorController.update
 );
 router.delete(
   "/:id",
+  validateJwtToken.validateAdminToken,
   joiValidation.validate(idSchema, "params"),
   doctorController.delete
 );

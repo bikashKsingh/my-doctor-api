@@ -45,7 +45,7 @@ module.exports.login = async function (serviceData) {
       let isCorrect = await bcrypt.compare(password, result.password);
 
       if (isCorrect) {
-        let token = jwt.sign({ id: result._id }, process.env.JWT_SECRET);
+        let token = jwt.sign({ id: result._id }, process.env.JWT_ADMIN_SECRET);
 
         response.isOkey = true;
         response.body = { token };
